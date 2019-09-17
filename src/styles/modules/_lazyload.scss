@@ -1,5 +1,6 @@
 .lazyload {
     margin: 10rem auto;
+    min-height: 400px;
     opacity: .4;
     transition: opacity 1s;
     &--loaded {
