@@ -1,0 +1,8 @@
+.lazyload {
+    margin: 10rem auto;
+    opacity: .4;
+    transition: opacity 1s;
+    &--loaded {
+        opacity: 1;
+    }
+}

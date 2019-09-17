@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lazy loading</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Lazy loading...</h1>
+
+        <picture>
+            <source srcset="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero-mob.jpg" media="(max-width:767px)">
+            <source srcset="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero-tab.jpg" media="(max-width:1293px)">
+            <source srcset="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero-desk.jpg" media="(min-width:1294px)">
+            <img class="hero__img" src="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero.jpg" data-at2x="/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero@2x.jpg"
+                alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
+        </picture>
+
+        <img class="lazyload" src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg" alt="Oak Worktop Corner">
+        <img class="lazyload" src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-swatch.jpg" alt="Oak Worktop Grain">
+        <img class="lazyload" src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-edge-2.jpg" alt="Oak Worktop Edge">
+        <img class="lazyload" src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-surface.jpg" alt="Oak Worktop with Sink">
+        <img class="lazyload" src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-in-kitchen.jpg" alt="Oak Kitchen Island">
+        <img class="lazyload" src="https://www.worktop-express.co.uk/media/gallery/wood/oak-kitchen-worktop.jpg" alt="Oak Kitchen Worktop">
+
+        <picture>
+            <source srcset="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero-mob.jpg" media="(max-width:767px)">
+            <source srcset="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero-tab.jpg" media="(max-width:1293px)">
+            <source srcset="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero-desk.jpg" media="(min-width:1294px)">
+            <img class="lazyload" src="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero.jpg" data-at2x="/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero@2x.jpg"
+                alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
+        </picture>
+    </div>
+
+</body>
+
+</html>
