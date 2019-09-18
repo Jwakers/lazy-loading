@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 2rem auto;
 }
 
@@ -15,4 +15,17 @@ h1 {
 img {
     display: block;
     max-width: 100%;
+    margin: 0 auto;
+}
+
+.sub-heading {
+    text-align: center;
+    font-weight: bold;
+    margin: 2rem 0;
+}
+
+.content {
+    max-width: 600px;
+    margin: 1rem auto;
+    line-height: 1.6;
 }
