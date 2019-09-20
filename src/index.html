@@ -18,22 +18,22 @@
                 <li>Interaction observer polyfill</li>
                 <li>Browserlist</li>
             </ul>
-        </div>
-        <div>
+
+
             <h2>Baseline Vs Progressive images</h2>
             <p>Here I have save two large images to compare their loading. Note the actually performance benefits of progressive loading are negligible. However progressive images do "appear" faster</p>
             <p>Both images are exactly the same size and no other optimizations have been made aside save for web.</p>
             <p>To really notice the loading difference you may have to throttle the network.</p>
-            <img src="./assets/images/netwrok-settings.png" />
-            <div class="flex">
-                <div>
-                    <div style="padding:1rem 0;"><strong>Baseline (1254kb)</strong></div>
-                    <img src="./assets/images/baseline-image-2.jpg" alt="baseline image" />
-                </div>
-                <div>
-                    <div style="padding:1rem 0;"><strong>Progressive (1205kb)</strong></div>
-                    <img src="./assets/images/progressive-image-2.jpg" alt="Progressive image" />
-                </div>
+        </div>
+        <img src="./assets/images/netwrok-settings.png" />
+        <div class="flex">
+            <div>
+                <div style="padding:1rem 0;"><strong>Baseline (1254kb)</strong></div>
+                <img src="./assets/images/baseline-image-2.jpg" alt="baseline image" />
+            </div>
+            <div>
+                <div style="padding:1rem 0;"><strong>Progressive (1205kb)</strong></div>
+                <img src="./assets/images/progressive-image-2.jpg" alt="Progressive image" />
             </div>
         </div>
 
@@ -78,16 +78,16 @@
                 pixel density for example.</p>
             <p>Once a higher resolution has been downloaded it will be used regardless of screen size unless stated otherwise, this is a performance feature because of caching, it makes no sense to fetch the "correct image" when you have a higher DPI version
                 already cached.</p>
+
+
+            <hr />
+
+            <h2>Lazy loading</h2>
+
+            <p>I have added lazy loading using the intersection observer API. I have added a visual effect to illustrate what is happening but opening the network panel in dev tools whilst scrolling down will give better insight</p>
+            <p>It can be adjusted so the image is downloaded an arbitrary number of pixels before its intersection with the viewport. Currently it is set to download the image when it is 100px inside the viewport for demonstration purposes. But in a real
+                word scenario this would probably be set to something like 40px outside of view.</p>
         </div>
-
-        <hr />
-
-        <h2>Lazy loading</h2>
-
-        <p>I have added lazy loading using the intersection observer API. I have added a visual effect to illustrate what is happening but opening the network panel in dev tools whilst scrolling down will give better insight</p>
-        <p>It can be adjusted so the image is downloaded an arbitrary number of pixels before its intersection with the viewport. Currently it is set to download the image when it is 100px inside the viewport for demonstration purposes. But in a real word
-            scenario this would probably be set to something like 40px outside of view.</p>
-
         <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg 1x, https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner@2x.jpg 2x">
         <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-swatch.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-swatch@2x.jpg 2x">
         <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-edge-2.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-edge-2@2x.jpg 2x">
