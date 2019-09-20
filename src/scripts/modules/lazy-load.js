@@ -1,3 +1,4 @@
+require('intersection-observer');
 export default class Lazyload {
     constructor() {
         this.init()
@@ -26,6 +27,7 @@ export default class Lazyload {
         const observer = this.observer();
         let elements = document.querySelectorAll('.lazyload');
 
-        elements.forEach(el => observer.observe(el))
+        // elements.forEach(el => observer.observe(el))
+        for (let index of elements) observer.observe(index);
     }
 }

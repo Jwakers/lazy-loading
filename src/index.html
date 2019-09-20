@@ -9,17 +9,33 @@
 </head>
 
 <body>
-
     <div class="container">
         <div class="content">
             <h1>Lazy loading</h1>
             <strong>Todo:</strong>
             <ul>
                 <li>Noscript fallback</li>
-                <li>Interection observer polyfill</li>
-                <li>Srcset</li>
+                <li>Preventing content reflow. See <a href="https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/">link</a><br/> Essentially use a base64 svg image in the src attribute for each ratio across the site. <code>src="data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E"</code></li>
+                <li>Interaction observer polyfill</li>
                 <li>Browserlist</li>
             </ul>
+        </div>
+        <div>
+            <h2>Baseline Vs Progressive images</h2>
+            <p>Here I have save two large images to compare their loading. Note the actually performance benefits of progressive loading are negligible.</p>
+            <p>Both images are exactly the same size and no other optimizations have been made aside save for web.</p>
+            <p>To really notice the loading difference you may have to throttle the network.</p>
+            <img src="./assets/images/netwrok-settings.png" />
+            <div class="flex">
+                <div>
+                    <div style="padding:1rem 0;"><strong>Baseline (1254kb)</strong></div>
+                    <img src="./assets/images/baseline-image-2.jpg" alt="baseline image" />
+                </div>
+                <div>
+                    <div style="padding:1rem 0;"><strong>Progressive (1205kb)</strong></div>
+                    <img src="./assets/images/progressive-image-2.jpg" alt="Progressive image" />
+                </div>
+            </div>
         </div>
         <div class="sub-heading">Srcset using pixel density (1x,2x,3x etc)</div>
         <picture>
@@ -43,6 +59,18 @@
             <img sizes="302px" srcset="https://via.placeholder.com/302x300 302w, https://via.placeholder.com/604x600 604w" alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
         </picture>
 
+
+        <div class="sub-heading">Mobile-first picture element - not serving images to mobile (will need to be display none)</div>
+        <picture>
+            <source srcset="https://via.placeholder.com/1202x300" media="(min-width:1380px)">
+            <source srcset="https://via.placeholder.com/902x300" media="(min-width:990px)">
+            <source srcset="https://via.placeholder.com/602x300" media="(min-width:768px)">
+            <source srcset="https://via.placeholder.com/500x300" media="(min-width:500px)">
+            <img sizes="302px" src="https://via.placeholder.com/302x300 302w" srcset="">
+        </picture>
+
+
+
         <!-- <picture>
             <source srcset="assets/images/hero--large.jpg 1920w, assets/images/hero--large-hi-dpi.jpg 3840w" media="(min-width:1380px)">
             <source srcset="assets/images/hero--medium.jpg 1380w, assets/images/hero--medium-hi-dpi.jpg 2760w" media="(min-width:990px)">
@@ -57,7 +85,7 @@
                 still cached</p>
         </div>
 
-        <img class="lazyload" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg 1x, https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner@2x.jpg 2x" alt="Oak Worktop Corner">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg 1x, https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner@2x.jpg 2x">
         <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-swatch.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-swatch@2x.jpg 2x">
         <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-edge-2.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-edge-2@2x.jpg 2x">
         <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-surface.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-surface@2x.jpg 2x">
@@ -78,6 +106,21 @@
             <img class="lazyload" src="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero.jpg" data-at2x="/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero@2x.jpg"
                 alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
         </picture>
+
+        <picture>
+            <source srcset="https://via.placeholder.com/1200x400" media="(min-width:1380px)">
+            <source srcset="https://via.placeholder.com/900x400" media="(min-width:990px)">
+            <source srcset="https://via.placeholder.com/600x400" media="(min-width:768px)">
+            <img class="lazyload" sizes="302px" data-srcset="https://via.placeholder.com/300x300 300w, https://via.placeholder.com/600x600 600w" alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
+        </picture>
+
+        <div calss="content">
+            <h2>Other considerations</h2>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Learn/Performance/dns-prefetch">DNS prefetching</a> for sources on remote servers</p>
+            <code>&lt;link rel="dns-prefetch" href="https://fonts.googleapis.com/"></code>
+            <p>Prefetching mandatory resources such as css files, header logo etc</p>
+            <code>&lt;link rel="prefetch" href="image.png"></code>
+        </div>
     </div>
 
 </body>

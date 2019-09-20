@@ -15,7 +15,16 @@ h1 {
 img {
     display: block;
     max-width: 100%;
+    height: auto;
     margin: 0 auto;
+}
+
+code {
+    color: #fff;
+    display: block;
+    border-radius: 4px;
+    background: #2e2e2e;
+    padding: .6rem 1rem;
 }
 
 .sub-heading {
@@ -28,4 +37,8 @@ img {
     max-width: 600px;
     margin: 1rem auto;
     line-height: 1.6;
+}
+
+.flex {
+    display: flex;
 }

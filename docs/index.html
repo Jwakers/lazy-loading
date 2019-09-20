@@ -6,35 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lazy loading</title>
-</head>
+<link href="main.css" rel="stylesheet"></head>
 
 <body>
-
     <div class="container">
-        <h1>Lazy loading</h1>
-
+        <div class="content">
+            <h1>Lazy loading</h1>
+            <strong>Todo:</strong>
+            <ul>
+                <li>Noscript fallback</li>
+                <li>Preventing content reflow. See <a href="https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/">link</a><br/> Essentially use a base64 svg image in the src attribute for each ratio across the site. <code>src="data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E"</code></li>
+                <li>Interaction observer polyfill</li>
+                <li>Browserlist</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Baseline Vs Progressive images</h2>
+            <p>Here I have save two large images to compare their loading. Note the actually performance benefits of progressive loading are negligible</p>
+            <p>to really notice performance you may have to throttle the network.</p>
+            <div class="flex">
+                <div>
+                    <div>Baseline</div>
+                    <img src="9c4ff80bfe2966133977f3655979a9f4.jpg" alt="baseline image" />
+                </div>
+                <div>
+                    <div>Progressive</div>
+                    <img src="efc3e5ced83606ce6db443cbb598e8de.jpg" alt="Progressive image" />
+                </div>
+            </div>
+        </div>
+        <div class="sub-heading">Srcset using pixel density (1x,2x,3x etc)</div>
         <picture>
-            <source srcset="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero-mob.jpg" media="(max-width:767px)">
-            <source srcset="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero-tab.jpg" media="(max-width:1293px)">
-            <source srcset="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero-desk.jpg" media="(min-width:1294px)">
-            <img class="hero__img" data-src="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero.jpg" data-at2x="/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero@2x.jpg"
-                alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
+            <source srcset="https://via.placeholder.com/1200x300" media="(min-width:1380px)">
+            <source srcset="https://via.placeholder.com/900x300" media="(min-width:990px)">
+            <source srcset="https://via.placeholder.com/600x300" media="(min-width:768px)">
+            <img sizes="" srcset="https://via.placeholder.com/300x300 1x, https://via.placeholder.com/600x600 2x" alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
+        </picture>
+        <div class="sub-heading">Srcset using width (301w, 602w)</div>
+        <picture>
+            <source srcset="https://via.placeholder.com/1201x300" media="(min-width:1380px)">
+            <source srcset="https://via.placeholder.com/901x300" media="(min-width:990px)">
+            <source srcset="https://via.placeholder.com/601x300" media="(min-width:768px)">
+            <img sizes="" srcset="https://via.placeholder.com/301x300 301w, https://via.placeholder.com/602x600 602w" alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
+        </picture>
+        <div class="sub-heading">Srcset using width (302w, 604w) - with sizes attribute set to 302px</div>
+        <picture>
+            <source srcset="https://via.placeholder.com/1202x300" media="(min-width:1380px)">
+            <source srcset="https://via.placeholder.com/902x300" media="(min-width:990px)">
+            <source srcset="https://via.placeholder.com/602x300" media="(min-width:768px)">
+            <img sizes="302px" srcset="https://via.placeholder.com/302x300 302w, https://via.placeholder.com/604x600 604w" alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
         </picture>
 
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg" alt="Oak Worktop Corner">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-swatch.jpg" alt="Oak Worktop Grain">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-edge-2.jpg" alt="Oak Worktop Edge">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-surface.jpg" alt="Oak Worktop with Sink">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-in-kitchen.jpg" alt="Oak Kitchen Island">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-kitchen-worktop.jpg" alt="Oak Kitchen Worktop">
 
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-corner.jpg" alt="Marble effect Worktop Corner">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-swatch.jpg" alt="Marble effect Worktop Swatch">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-edge.jpg" alt="Marble effect Worktop Edge">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-surface.jpg" alt="Marble effect Worktop with Sink">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-kitchen-worktop.jpg" alt="Marble effect Kitchen Island">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-in-kitchen.jpg" alt="Marble effect Kitchen Worktop">
-        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-gallery.jpg" alt="Go to our marble effect worktop gallery page" title="Go to our Marble Effect gallery page.">
+        <div class="sub-heading">Mobile-first picture element - not serving images to mobile (will need to be display none)</div>
+        <picture>
+            <source srcset="https://via.placeholder.com/1202x300" media="(min-width:1380px)">
+            <source srcset="https://via.placeholder.com/902x300" media="(min-width:990px)">
+            <source srcset="https://via.placeholder.com/602x300" media="(min-width:768px)">
+            <source srcset="https://via.placeholder.com/500x300" media="(min-width:500px)">
+            <img sizes="302px" src="https://via.placeholder.com/302x300 302w" srcset="">
+        </picture>
+
+
+
+        <!-- <picture>
+            <source srcset="assets/images/hero--large.jpg 1920w, assets/images/hero--large-hi-dpi.jpg 3840w" media="(min-width:1380px)">
+            <source srcset="assets/images/hero--medium.jpg 1380w, assets/images/hero--medium-hi-dpi.jpg 2760w" media="(min-width:990px)">
+            <source srcset="assets/images/hero--small.jpg 990w, assets/images/hero--small-hi-dpi.jpg 1980w" media="(min-width:640px)">
+            <img class="large-hero__image" srcset="assets/images/hero--smaller.jpg 640w, assets/images/hero--smaller-hi-dpi.jpg 1280w" alt="Coastal view of ocean and mountains">
+        </picture> -->
+
+        <div class="content">
+            <p>An image at 2x will not download until pixel density is at least 50% higher than the closest declared pixel density (1x, 2x, 3x, 4x etc).</p>
+            <p>If pixel denstity is say 1.4x of the standard image, it will show the standard image. This is different to the original retina script which will fetch the 2x image the moment the pixel density was any amount above the standard image.</p>
+            <p>Once a higher resolution has been downloaded it will be used regardess of screen size unless stated otherwise, this is a performance feature because of catching, it makes no senes to fetch the "correct image" when you have a higher DPI version
+                still cached</p>
+        </div>
+
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg 1x, https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-swatch.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-swatch@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-edge-2.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-edge-2@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-surface.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-surface@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-in-kitchen.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-in-kitchen@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-kitchen-worktop.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-kitchen-worktop@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-corner.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-corner@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-swatch.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-swatch@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-edge.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-edge@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-surface.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-surface@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-kitchen-worktop.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-kitchen-worktop@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-in-kitchen.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-worktop-in-kitchen@2x.jpg 2x">
+        <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-gallery.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/laminate/calcutta-marble-gallery@2x.jpg 2x">
 
         <picture>
             <source data-srcset="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero-mob.jpg" media="(max-width:767px)">
@@ -43,8 +104,15 @@
             <img class="lazyload" src="https://www.worktop-express.co.uk/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero.jpg" data-at2x="/skins/skin2019_redesign_home/media/prime-oak-paired-splashback-stylish-contemporary-hero@2x.jpg"
                 alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
         </picture>
+
+        <picture>
+            <source srcset="https://via.placeholder.com/1200x400" media="(min-width:1380px)">
+            <source srcset="https://via.placeholder.com/900x400" media="(min-width:990px)">
+            <source srcset="https://via.placeholder.com/600x400" media="(min-width:768px)">
+            <img class="lazyload" sizes="302px" data-srcset="https://via.placeholder.com/300x300 300w, https://via.placeholder.com/600x600 600w" alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
+        </picture>
     </div>
 
-<script type="text/javascript" src="main.js?74a74f99436f67e927f1"></script></body>
+<script type="text/javascript" src="main.js?73c31d94b406b5dc2785"></script></body>
 
 </html>
