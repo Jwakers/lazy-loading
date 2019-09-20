@@ -22,16 +22,18 @@
         </div>
         <div>
             <h2>Baseline Vs Progressive images</h2>
-            <p>Here I have save two large images to compare their loading. Note the actually performance benefits of progressive loading are negligible</p>
-            <p>to really notice performance you may have to throttle the network.</p>
+            <p>Here I have save two large images to compare their loading. Note the actually performance benefits of progressive loading are negligible.</p>
+            <p>Both images are exactly the same size and no other optimizations have been made aside save for web.</p>
+            <p>To really notice the loading difference you may have to throttle the network.</p>
+            <img src="a79fc742f83ac943cfa9c6182ad8ab47.png" />
             <div class="flex">
                 <div>
-                    <div>Baseline</div>
-                    <img src="9c4ff80bfe2966133977f3655979a9f4.jpg" alt="baseline image" />
+                    <div style="padding:1rem 0;"><strong>Baseline (1254kb)</strong></div>
+                    <img src="fd3117cfe4e4574d5c250b1f195089fc.jpg" alt="baseline image" />
                 </div>
                 <div>
-                    <div>Progressive</div>
-                    <img src="efc3e5ced83606ce6db443cbb598e8de.jpg" alt="Progressive image" />
+                    <div style="padding:1rem 0;"><strong>Progressive (1205kb)</strong></div>
+                    <img src="62919434bad607fea0485c40e521258f.jpg" alt="Progressive image" />
                 </div>
             </div>
         </div>
@@ -111,8 +113,16 @@
             <source srcset="https://via.placeholder.com/600x400" media="(min-width:768px)">
             <img class="lazyload" sizes="302px" data-srcset="https://via.placeholder.com/300x300 300w, https://via.placeholder.com/600x600 600w" alt="This Prime Oak worktop has been paired with a geometric splashback to create a stylish and contemporary kitchen.">
         </picture>
+
+        <div calss="content">
+            <h2>Other considerations</h2>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Learn/Performance/dns-prefetch">DNS prefetching</a> for sources on remote servers</p>
+            <code>&lt;link rel="dns-prefetch" href="https://fonts.googleapis.com/"></code>
+            <p>Prefetching mandatory resources such as css files, header logo etc</p>
+            <code>&lt;link rel="prefetch" href="image.png"></code>
+        </div>
     </div>
 
-<script type="text/javascript" src="main.js?73c31d94b406b5dc2785"></script></body>
+<script type="text/javascript" src="main.js?eaf6ea7ed44e8cd7e102"></script></body>
 
 </html>
