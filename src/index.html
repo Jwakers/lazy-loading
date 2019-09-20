@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lazy loading</title>
+    <title>Image optimizations</title>
 </head>
 
 <body>
     <div class="container">
         <div class="content">
-            <h1>Lazy loading</h1>
+            <h1>Image optimizations</h1>
             <strong>Todo:</strong>
             <ul>
                 <li>Noscript fallback</li>
@@ -37,6 +37,10 @@
                 </div>
             </div>
         </div>
+
+        <hr />
+
+        <h2>Responsive images using picture element</h2>
         <div class="sub-heading">Srcset using pixel density (1x,2x,3x etc)</div>
         <picture>
             <source srcset="https://via.placeholder.com/1200x300" media="(min-width:1380px)">
@@ -69,21 +73,18 @@
             <img sizes="302px" src="https://via.placeholder.com/302x300 302w" srcset="">
         </picture>
 
-
-
-        <!-- <picture>
-            <source srcset="assets/images/hero--large.jpg 1920w, assets/images/hero--large-hi-dpi.jpg 3840w" media="(min-width:1380px)">
-            <source srcset="assets/images/hero--medium.jpg 1380w, assets/images/hero--medium-hi-dpi.jpg 2760w" media="(min-width:990px)">
-            <source srcset="assets/images/hero--small.jpg 990w, assets/images/hero--small-hi-dpi.jpg 1980w" media="(min-width:640px)">
-            <img class="large-hero__image" srcset="assets/images/hero--smaller.jpg 640w, assets/images/hero--smaller-hi-dpi.jpg 1280w" alt="Coastal view of ocean and mountains">
-        </picture> -->
-
         <div class="content">
             <p>An image at 2x will not download until pixel density is at least 50% higher than the closest declared pixel density (1x, 2x, 3x, 4x etc).</p>
             <p>If pixel denstity is say 1.4x of the standard image, it will show the standard image. This is different to the original retina script which will fetch the 2x image the moment the pixel density was any amount above the standard image.</p>
             <p>Once a higher resolution has been downloaded it will be used regardess of screen size unless stated otherwise, this is a performance feature because of catching, it makes no senes to fetch the "correct image" when you have a higher DPI version
                 still cached</p>
         </div>
+        <hr />
+        <h2>Lazy loading</h2>
+
+        <p>I have added lazy loading using the intersection observer API. I have added a visual effect to illustrate what is happening but opening the network panel in dev tools whilst scrolling down will give better insight</p>
+        <p>It can be adjusted so the image is downloaded an arbitrary number of pixels before its intersection with the viewport. Currently it is set to bring in the image when it is 100px inside the viewport for demonstration purposes. But in a real word
+            scenario this would probably be set to something like 40px outside of view.</p>
 
         <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner.jpg 1x, https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-corner@2x.jpg 2x">
         <img class="lazyload" data-src="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-swatch.jpg" data-srcset="https://www.worktop-express.co.uk/media/gallery/wood/oak-worktop-swatch@2x.jpg 2x">
@@ -120,6 +121,10 @@
             <code>&lt;link rel="dns-prefetch" href="https://fonts.googleapis.com/"></code>
             <p>Prefetching mandatory resources such as css files, header logo etc</p>
             <code>&lt;link rel="prefetch" href="image.png"></code>
+            <p>Enable gzip in htaccess</p>
+            <p>Use main server configuration file instead of .htaccess if we have access to it. Quote from the Apache foundation:</p>
+            <blockquote cite="https://nystudio107.com/blog/stop-using-htaccess-files-no-really">You should avoid using .htaccess files completely if you have access to httpd main server config file. Using .htaccess files slows down your Apache http server. Any directive that you can include in a .htaccess file is better set in a Directory
+                block, as it will have the same effect with better performance.</blockquote>
         </div>
     </div>
 
