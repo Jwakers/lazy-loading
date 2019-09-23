@@ -12,20 +12,13 @@
     <div class="container">
         <div class="content">
             <h1>Image optimizations</h1>
-            <strong>Todo:</strong>
-            <ul>
-                <li>Preventing content reflow. See <a href="https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/">link</a><br/> Essentially use a base64 svg image in the src attribute for each ratio across the site. <code>src="data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E"</code></li>
-                <li>Interaction observer polyfill</li>
-                <li>Browserlist</li>
-            </ul>
-
 
             <h2>Baseline Vs Progressive images</h2>
             <p>Here I have save two large images to compare their loading. Note the actually performance benefits of progressive loading are negligible. However progressive images do "appear" faster</p>
             <p>Both images are exactly the same size and no other optimizations have been made aside save for web.</p>
             <p>To really notice the loading difference you may have to throttle the network.</p>
         </div>
-        <img src="./assets/netwrok-settings.png?a79fc742f83ac943cfa9c6182ad8ab47" />
+        <img src="./assets/network-settings.png?a79fc742f83ac943cfa9c6182ad8ab47" />
         <div class="flex">
             <div class="col">
                 <div style="padding:1rem 0;"><strong>Baseline (1254kb)</strong></div>
@@ -34,6 +27,17 @@
             <div class="col">
                 <div style="padding:1rem 0;"><strong>Progressive (1205kb)</strong></div>
                 <img src="./assets/progressive-image-2.jpg?62919434bad607fea0485c40e521258f" alt="Progressive image" />
+            </div>
+        </div>
+
+        <div class="flex">
+            <div class="col">
+                <div style="padding:1rem 0;"><strong>CCP</strong></div>
+                <img src="./assets/baseline-image-2.jpg?fd3117cfe4e4574d5c250b1f195089fc" alt="Baseline image" />
+            </div>
+            <div class="col">
+                <div style="padding:1rem 0;"><strong>Cloudinary</strong></div>
+                <img src="https://res.cloudinary.com/dy7hqiitw/image/upload/f_auto/v1569240416/image-testing-wex/baseline-image-2_gv6ecp.jpg" alt="Cloudinary image" />
             </div>
         </div>
 
@@ -129,9 +133,15 @@
             <p>Use main server configuration file instead of .htaccess if we have access to it. Quote from the Apache foundation:</p>
             <blockquote cite="https://nystudio107.com/blog/stop-using-htaccess-files-no-really">You should avoid using .htaccess files completely if you have access to httpd main server config file. Using .htaccess files slows down your Apache http server. Any directive that you can include in a .htaccess file is better set in a Directory
                 block, as it will have the same effect with better performance.</blockquote>
+
+            <strong>Todo:</strong>
+            <ul>
+                <li>Preventing content reflow. See <a href="https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/">link</a><br/> Essentially use a base64 svg image in the src attribute for each ratio across the site. <code>src="data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E"</code></li>
+                <li>Browserlist (currenttly set to : )</li>
+            </ul>
         </div>
     </div>
 
-<script type="text/javascript" src="main.js?6726525082fa21ef2fea"></script></body>
+<script type="text/javascript" src="main.js?309c4b94c6067d3a959e"></script></body>
 
 </html>
