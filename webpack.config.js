@@ -1,11 +1,27 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: "./src/index.js",
     output: {
+        library: 'imageOp',
+        libraryTarget: 'var',
         path: __dirname + '/docs',
         filename: "[name].js?[hash]"
+    },
+    optimization: {
+        minimizer  : [
+            new UglifyJSPlugin({
+                uglifyOptions: {
+                    compress: true,
+                    keep_classnames: true,
+                    keep_fnames: false,
+                    mangle: true
+                }
+            })
+
+        ]
     },
     module: {
         rules: [{
