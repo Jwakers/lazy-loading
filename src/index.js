@@ -3,6 +3,6 @@ import 'intersection-observer';
 import './styles/style.scss';
 import Lazyload from './scripts/modules/lazy-load';
 
-new Lazyload('.prodimg__lazy', "20px", ".prodimg");
+new Lazyload()
 
 export default Lazyload;
