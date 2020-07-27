@@ -5,4 +5,4 @@ import Lazyload from './scripts/modules/lazy-load';
 
 new Lazyload('.prodimg__lazy', "20px", ".prodimg");
 
-export default new Lazyload();
+export default Lazyload;

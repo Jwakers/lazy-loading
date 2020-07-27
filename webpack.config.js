@@ -5,19 +5,20 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     entry: "./src/index.js",
     output: {
-        library: 'imageOp',
+        library: 'Lazyload',
         libraryTarget: 'var',
+        libraryExport: 'default',
         path: __dirname + '/docs',
         filename: "[name].js?[hash]"
     },
     optimization: {
-        minimizer  : [
+        minimizer: [
             new UglifyJSPlugin({
                 uglifyOptions: {
                     compress: true,
                     keep_classnames: true,
                     keep_fnames: false,
-                    mangle: true
+                    mangle: false
                 }
             })
 
